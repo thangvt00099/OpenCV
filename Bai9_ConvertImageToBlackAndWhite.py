@@ -14,7 +14,8 @@ img = cv2.imread('D:/OpenCV/img/image1.png', cv2.IMREAD_GRAYSCALE)
 
 # threshold: [0-255]
 thresh = 128
-img_binary = cv2.threshold(img, thresh, 255, cv2.THRESH_BINARY)[0]
+img_binary = cv2.threshold(img, thresh, 255, cv2.THRESH_BINARY)[1]
+cv2.imwrite("D:/OpenCV/img/img_binary.png", img_binary)
 cv2.imshow("Result: ", img_binary)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
