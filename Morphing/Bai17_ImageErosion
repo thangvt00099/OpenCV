@@ -1,0 +1,24 @@
+import cv2
+import numpy as np
+# Erosion: sự xói mòn 
+"""
+Syntax: cv2.erode(src, kernel, dts, anchor, iterations, borderType, borderValue) - ngược với cv2.dilate()
+"""
+img = cv2.imread("D:/OpenCV/img/input_image.png", cv2.IMREAD_UNCHANGED)
+scale_percent = 200
+width_img = int(img.shape[1] * scale_percent / 100)
+height_img = int(img.shape[0] * scale_percent / 100)
+dsize = (width_img, height_img)
+img = cv2.resize(img, dsize)
+
+kernel = np.ones((5, 5), np.uint8)
+
+eroded = cv2.erode(img, kernel, iterations=3)
+cv2.imwrite("D:/OpenCV/img/eroded.jpg", eroded)
+cv2.imshow("Result", eroded)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+
+
+
